@@ -11,6 +11,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
 # Source0-md5:	bd11404c11be3fc164944843295fb25b
 URL:		http://extragear.kde.org/apps/kipi/
 BuildRequires:	kde4-kdemultimedia-devel
+BuildRequires:	libdvdread-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
