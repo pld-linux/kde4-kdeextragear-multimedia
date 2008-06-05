@@ -81,7 +81,7 @@ cd amarok/build
 	../
 %{__make}
 
-cd ../k3b/build
+cd ../../k3b/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-LCMS_DIR=%{_libdir} \
