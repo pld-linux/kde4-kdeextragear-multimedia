@@ -78,14 +78,14 @@ install -d {amarok/build,k3b/build}
 cd amarok/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-LCMS_DIR=%attr(755,root,root) %{_libdir} \
+	-LCMS_DIR=%{_libdir} \
 	../
 %{__make}
 
 cd ../../k3b/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-LCMS_DIR=%attr(755,root,root) %{_libdir} \
+	-LCMS_DIR=%{_libdir} \
 	../
 %{__make}
 
