@@ -73,7 +73,7 @@ Własności Kreatora CD:
 %setup -q -n %{orgname}-%{snap}
 
 %build
-install -d {amarok/build, k3b/build}
+install -d {amarok/build,k3b/build}
 cd amarok/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
