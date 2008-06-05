@@ -78,14 +78,14 @@ install -d {amarok/build,k3b/build}
 cd amarok/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-LCMS_DIR=%{_libdir} \
+	-LCMS_DIR=%attr(755,root,root) %{_libdir} \
 	../
 %{__make}
 
 cd ../../k3b/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-LCMS_DIR=%{_libdir} \
+	-LCMS_DIR=%attr(755,root,root) %{_libdir} \
 	../
 %{__make}
 
@@ -110,39 +110,117 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n kde4-amarok
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/amarok
+%attr(755,root,root) %{_bindir}/amarokcollectionscanner
+%attr(755,root,root) %{_libdir}/kde4/amarok_containment_context.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_cloud.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_currenttrack.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lastfmevents.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lyrics.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_serviceinfo.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_video.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_wikipedia.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_data_engine_cloud.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_data_engine_current.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_data_engine_lastfm.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_data_engine_lyrics.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_data_engine_service.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_data_engine_wikipedia.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_ampache.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_jamendo.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_lastfm.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_magnatunestore.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_mp3tunes.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_opmldirectory.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_service_shoutcast.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_amarok_service_ampache.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_amarok_service_lastfm.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_amarok_service_magnatunestore.so
+%attr(755,root,root) %{_libdir}/kde4/kcm_amarok_service_mp3tunes.so
+%attr(755,root,root) %{_libdir}/kde4/libamarok_collection-daapcollection.so
+%attr(755,root,root) %{_libdir}/kde4/libamarok_collection-sqlcollection.so
+%attr(755,root,root) %{_libdir}/kde4/libamarok_generic-mediadevice.so
+%attr(755,root,root) %ghost %{_libdir}/libamarok_taglib.so.1
+%attr(755,root,root) %{_libdir}/libamarok_taglib.so.1.0.0
+%attr(755,root,root) %ghost %{_libdir}/libamaroklib.so.1
+%attr(755,root,root) %{_libdir}/libamaroklib.so.1.0.0
+%attr(755,root,root) %ghost %{_libdir}/libamarokplasma.so.1
+%attr(755,root,root) %{_libdir}/libamarokplasma.so.1.0.0
+%attr(755,root,root) %{_libdir}/strigi/strigita_audible.so
+%attr(755,root,root) %{_libdir}/strigi/strigita_mp4.so
+%{_datadir}/applications/kde4/amarok.desktop
+%{_datadir}/apps/amarok
+%{_datadir}/apps/desktoptheme/Amarok-Mockup
+%{_datadir}/apps/desktoptheme/amarok-default.desktop
+%{_datadir}/apps/desktoptheme/default/widgets
+%{_datadir}/apps/konqsidebartng/virtual_folders/services/videodvd.desktop
+%{_datadir}/config.kcfg/amarok.kcfg
+%{_datadir}/config/amarok.knsrc
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.collection.xml
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.context.xml
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.mediabrowser.xml
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.player.xml
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.playlist.xml
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.playlistbrowser.xml
+%{_datadir}/dbus-1/interfaces/org.kde.amarok.script.xml
+%{_datadir}/icons/hicolor/*x*/apps/amarok.png
+%{_datadir}/kde4/services/ServiceMenus/amarok_append.desktop
+%{_datadir}/kde4/services/amarok-containment-context.desktop
+%{_datadir}/kde4/services/amarok-context-applet-cloud.desktop
+%{_datadir}/kde4/services/amarok-context-applet-currenttrack.desktop 
+%{_datadir}/kde4/services/amarok-context-applet-lastfmevents.desktop
+%{_datadir}/kde4/services/amarok-context-applet-lyrics.desktop
+%{_datadir}/kde4/services/amarok-context-applet-serviceinfo.desktop
+%{_datadir}/kde4/services/amarok-context-applet-video.desktop
+%{_datadir}/kde4/services/amarok-context-applet-wikipedia.desktop
+%{_datadir}/kde4/services/amarok-data-engine-cloud.desktop
+%{_datadir}/kde4/services/amarok-data-engine-current.desktop
+%{_datadir}/kde4/services/amarok-data-engine-lastfm.desktop
+%{_datadir}/kde4/services/amarok-data-engine-lyrics.desktop
+%{_datadir}/kde4/services/amarok-data-engine-service.desktop
+%{_datadir}/kde4/services/amarok-data-engine-wikipedia.desktop
+%{_datadir}/kde4/services/amarok_collection-daapcollection.desktop
+%{_datadir}/kde4/services/amarok_collection-sqlcollection.desktop
+%{_datadir}/kde4/services/amarok_generic-mediadevice.desktop
+%{_datadir}/kde4/services/amarok_service_ampache.desktop
+%{_datadir}/kde4/services/amarok_service_ampache_config.desktop
+%{_datadir}/kde4/services/amarok_service_jamendo.desktop
+%{_datadir}/kde4/services/amarok_service_lastfm.desktop
+%{_datadir}/kde4/services/amarok_service_lastfm_config.desktop
+%{_datadir}/kde4/services/amarok_service_magnatunestore.desktop
+%{_datadir}/kde4/services/amarok_service_magnatunestore_config.desktop
+%{_datadir}/kde4/services/amarok_service_mp3tunes.desktop
+%{_datadir}/kde4/services/amarok_service_mp3tunes_config.desktop
+%{_datadir}/kde4/services/amarok_service_opmldirectory.desktop
+%{_datadir}/kde4/services/amarok_service_shoutcast.desktop
+%{_datadir}/kde4/servicetypes/amarok_context_applet.desktop
+%{_datadir}/kde4/servicetypes/amarok_data_engine.desktop
+%{_datadir}/kde4/servicetypes/amarok_plugin.desktop
 
 %files -n kde4-k3b
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/k3b
 %attr(755,root,root) %{_bindir}/k3bsetup
-%{_includedir}/*.h
-%{_libdir}/kde4/k3bexternalencoder.so
+%attr(755,root,root) %{_libdir}/kde4/k3bexternalencoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3bffmpegdecoder.so
-%attr(755,root,root) %{_libdir}/kde4/k3bflacdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3blameencoder.so
-%attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3bmaddecoder.so
-%{_libdir}/kde4/k3bmpcdecoder.desktop
-%attr(755,root,root) %{_libdir}/kde4/k3bmpcdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3boggvorbisdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3boggvorbisencoder.so
-%attr(755,root,root) %{_libdir}/kde4/k3bsoxencoder.so
+%attr(755,root,root) %{_libdir}/kde4/k3bsoxencoder.so 
 %attr(755,root,root) %{_libdir}/kde4/k3bwavedecoder.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3bexternalencoder.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3blameencoder.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3boggvorbisencoder.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3bsetup2.so
 %attr(755,root,root) %{_libdir}/kde4/kio_videodvd.so
-%attr(755,root,root) %{_libdir}/libk3b.so
-%attr(755,root,root) %{_libdir}/libk3b.so.4
+%attr(755,root,root) %ghost %{_libdir}/libk3b.so.4
 %attr(755,root,root) %{_libdir}/libk3b.so.4.0.0
-%attr(755,root,root) %{_libdir}/libk3bdevice.so
-%attr(755,root,root) %{_libdir}/libk3bdevice.so.6
+%attr(755,root,root) %ghost %{_libdir}/libk3bdevice.so.6
 %attr(755,root,root) %{_libdir}/libk3bdevice.so.6.0.0
-%{_desktopdir}/kde4/k3b.desktop
-%{_datadir}/apps/k3b
-%{_datadir}/apps/konqsidebartng/virtual_folders/services/videodvd.desktop
-%{_iconsdir}/hicolor/*/apps/k3b.png
+%{_datadir}/applications/kde4/k3b.desktop 
+%{_datadir}/apps/k3b 
+%{_datadir}/icons/hicolor/*x*/apps/k3b.png
 %{_datadir}/kde4/services/ServiceMenus/k3b_audiocd_rip.desktop
 %{_datadir}/kde4/services/ServiceMenus/k3b_cd_copy.desktop
 %{_datadir}/kde4/services/ServiceMenus/k3b_dvd_copy.desktop
@@ -151,9 +229,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ServiceMenus/k3b_videodvd_rip.desktop
 %{_datadir}/kde4/services/k3bexternalencoder.desktop
 %{_datadir}/kde4/services/k3bffmpegdecoder.desktop
-%{_datadir}/kde4/services/k3bflacdecoder.desktop
 %{_datadir}/kde4/services/k3blameencoder.desktop
-%{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
 %{_datadir}/kde4/services/k3bmaddecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisdecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisencoder.desktop
@@ -165,4 +241,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/kcm_k3boggvorbisencoder.desktop
 %{_datadir}/kde4/services/videodvd.protocol
 %{_datadir}/kde4/servicetypes/k3bplugin.desktop
-%{_datadir}/sounds/k3b_*.wav
+%{_datadir}/sounds/k3b*.wav
