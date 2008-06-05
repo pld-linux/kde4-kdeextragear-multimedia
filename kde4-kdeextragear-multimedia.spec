@@ -73,42 +73,33 @@ Własności Kreatora CD:
 %setup -q -n %{orgname}-%{snap}
 
 %build
-cd amarok
-install -d build
-cd build
+install -d {amarok/build, k3b/build}
+cd amarok/build
 %cmake \
-		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-		-LCMS_DIR=%{_libdir} \
-		../
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-LCMS_DIR=%{_libdir} \
+	../
 %{__make}
-cd ..
 
-cd k3b
-install -d build
-cd build
+cd ../k3b/build
 %cmake \
-		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-		-LCMS_DIR=%{_libdir} \
-		../
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-LCMS_DIR=%{_libdir} \
+	../
 %{__make}
-cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-cd amarok
-%{__make} -C build install \
+%{__make} -C amarok/build install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
-cd ..
 
-cd k3b
-%{__make} -C build install \
+%{__make} -C k3b/build install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
-cd ..
 
 #%find_lang amarok --with-kde
 #%find_lang k3b	--with-kde
