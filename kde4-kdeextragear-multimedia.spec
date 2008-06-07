@@ -102,11 +102,11 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
 
-#%find_lang amarok --with-kde
-#%find_lang k3b	--with-kde
+%post	-n kde4-amarok	-p /sbin/ldconfig
+%postun	-n kde4-amarok	-p /sbin/ldconfig
 
-%post   kde4-amarok     -p /sbin/ldconfig
-%postun kde4-amarok     -p /sbin/ldconfig
+%post	-n kde4-k3b	-p /sbin/ldconfig
+%postun	-n kde4-k3b	-p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
