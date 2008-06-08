@@ -13,6 +13,9 @@ URL:		http://extragear.kde.org/apps/kipi/
 BuildRequires:	kde4-kdemultimedia-devel
 BuildRequires:	libdvdread-devel
 BuildRequires:	libjpeg-devel
+BuildRequires:	libnjb-devel
+BuildRequires:	libgpod-devel
+BuildRequires:	mpeg4ip-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
