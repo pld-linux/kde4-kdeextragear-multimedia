@@ -10,6 +10,7 @@ Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
 # Source0-md5:	bd11404c11be3fc164944843295fb25b
 URL:		http://extragear.kde.org/apps/kipi/
+Patch0:		kde4-kdeextragear-multimedia-NJB.patch
 BuildRequires:	kde4-kdemultimedia-devel
 BuildRequires:	libdvdread-devel
 BuildRequires:	libjpeg-devel
@@ -75,6 +76,7 @@ Własności Kreatora CD:
 
 %prep
 %setup -q -n %{orgname}-%{snap}
+%patch0 -p0
 
 %build
 install -d {amarok/build,k3b/build}
@@ -202,7 +204,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/servicetypes/amarok_context_applet.desktop
 %{_datadir}/kde4/servicetypes/amarok_data_engine.desktop
 %{_datadir}/kde4/servicetypes/amarok_plugin.desktop
-
+                              
 %files -n kde4-k3b
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/k3b
@@ -220,10 +222,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3boggvorbisencoder.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3bsetup2.so
 %attr(755,root,root) %{_libdir}/kde4/kio_videodvd.so
+%attr(755,root,root) %{_libdir}/kde4/k3bflacdecoder.so                                               
+%attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
+%attr(755,root,root) %{_libdir}/kde4/k3bmpcdecoder.so
 %attr(755,root,root) %ghost %{_libdir}/libk3b.so.4
 %attr(755,root,root) %{_libdir}/libk3b.so.4.0.0
 %attr(755,root,root) %ghost %{_libdir}/libk3bdevice.so.6
 %attr(755,root,root) %{_libdir}/libk3bdevice.so.6.0.0
+%{_libdir}/kde4/k3bmpcdecoder.desktop
+%{_datadir}/kde4/services/k3bflacdecoder.desktop
+%{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
 %{_datadir}/applications/kde4/k3b.desktop 
 %{_datadir}/apps/k3b 
 %{_datadir}/icons/hicolor/*x*/apps/k3b.png
