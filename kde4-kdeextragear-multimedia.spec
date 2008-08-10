@@ -41,6 +41,9 @@ Odtwarzacz audio dla KDE.
 Summary:	The CD Kreator
 Summary(pl.UTF-8):	Kreator CD
 Group:		X11/Applications
+Suggests:	cdrdao
+Suggests:	cdrtools
+Suggests:	dvd+rw-tools
 
 %description -n kde4-k3b
 The CD Kreator features:
