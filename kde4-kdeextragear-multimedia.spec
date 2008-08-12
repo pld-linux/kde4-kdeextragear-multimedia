@@ -18,6 +18,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libnjb-devel
 BuildRequires:	mpeg4ip-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	taglib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
