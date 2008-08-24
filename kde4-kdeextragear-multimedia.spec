@@ -1,16 +1,17 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 842839
+%define		snap 849707
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
-Version:	4.1.61
+Version:	4.1.63
 Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	dfbdb53dc213c16b0fd5a1a723827e40
+# Source0-md5:	84608036118733fa4b79403bb91eecfa
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
+Patch1:		amarok-lib64.patch
 BuildRequires:	kde4-kdemultimedia-devel
 BuildRequires:	libdvdread-devel
 BuildRequires:	libgpod-devel
@@ -81,6 +82,7 @@ Własności Kreatora CD:
 %prep
 %setup -q -n %{orgname}-%{snap}
 %patch0 -p0
+%patch1 -p0
 
 %build
 install -d {amarok/build,k3b/build}
@@ -125,6 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/amarok
 %attr(755,root,root) %{_bindir}/amarokcollectionscanner
 %attr(755,root,root) %{_bindir}/amarokmp3tunesharmonydaemon
+%attr(755,root,root) %{_bindir}/amarok_afttagger
 %attr(755,root,root) %{_libdir}/kde4/amarok_containment_context.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_cloud.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_currenttrack.so
@@ -153,8 +156,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-daapcollection.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-sqlcollection.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_albums.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_mediadevices.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-ipodcollection.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-nepomukcollection.so
+%attr(755,root,root) %{_libdir}/kde4/libamarok_collection-mtpcollection.so
 %attr(755,root,root) %{_libdir}/libamarok_taglib.so
 %attr(755,root,root) %{_libdir}/libamaroklib.so
 %attr(755,root,root) %{_libdir}/libamarokplasma.so
@@ -167,10 +172,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libamarok_taglib.so.1.0.0
 %attr(755,root,root) %ghost %{_libdir}/libamaroklib.so.1
 %attr(755,root,root) %{_libdir}/libamaroklib.so.1.0.0
-%attr(755,root,root) %ghost %{_libdir}/libamarokplasma.so.1
-%attr(755,root,root) %{_libdir}/libamarokplasma.so.1.0.0
+%attr(755,root,root) %ghost %{_libdir}/libamarokplasma.so.2
+%attr(755,root,root) %{_libdir}/libamarokplasma.so.2.0.0
 %attr(755,root,root) %{_libdir}/strigi/strigita_audible.so
 %attr(755,root,root) %{_libdir}/strigi/strigita_mp4.so
+%attr(755,root,root) %{_libdir}/kde4/plugins/script/libqtscript_core.so
+%attr(755,root,root) %{_libdir}/kde4/plugins/script/libqtscript_gui.so
+%attr(755,root,root) %{_libdir}/kde4/plugins/script/libqtscript_network.so
+%attr(755,root,root) %{_libdir}/kde4/plugins/script/libqtscript_sql.so
+%attr(755,root,root) %{_libdir}/kde4/plugins/script/libqtscript_uitools.so
+%attr(755,root,root) %{_libdir}/kde4/plugins/script/libqtscript_xml.so
+
 %{_desktopdir}/kde4/amarok.desktop
 %{_datadir}/apps/amarok
 %{_datadir}/apps/desktoptheme/Amarok-Mockup
@@ -185,8 +197,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*x*/apps/amarok.png
 %{_datadir}/kde4/services/ServiceMenus/amarok_append.desktop
 %{_datadir}/kde4/services/amarok-context-applet-albums.desktop
+%{_datadir}/kde4/services/amarok-context-applet-mediadevices.desktop
 %{_datadir}/kde4/services/amarok_collection-ipodcollection.desktop
 %{_datadir}/kde4/services/amarok_collection-nepomukcollection.desktop
+%{_datadir}/kde4/services/amarok_collection-mtpcollection.desktop
 %{_datadir}/kde4/services/amarok-containment-context.desktop
 %{_datadir}/kde4/services/amarok-context-applet-cloud.desktop
 %{_datadir}/kde4/services/amarok-context-applet-currenttrack.desktop
@@ -223,7 +237,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/k3b
 %attr(755,root,root) %{_bindir}/k3bsetup
 %attr(755,root,root) %{_libdir}/kde4/k3bexternalencoder.so
-%attr(755,root,root) %{_libdir}/kde4/k3bffmpegdecoder.so
+#%attr(755,root,root) %{_libdir}/kde4/k3bffmpegdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3blameencoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3bmaddecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3boggvorbisdecoder.so
@@ -237,12 +251,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kio_videodvd.so
 #%attr(755,root,root) %{_libdir}/kde4/k3bflacdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
-%attr(755,root,root) %{_libdir}/kde4/k3bmpcdecoder.so
+#%attr(755,root,root) %{_libdir}/kde4/k3bmpcdecoder.so
 %attr(755,root,root) %ghost %{_libdir}/libk3b.so.4
 %attr(755,root,root) %{_libdir}/libk3b.so.4.0.0
 %attr(755,root,root) %ghost %{_libdir}/libk3bdevice.so.6
 %attr(755,root,root) %{_libdir}/libk3bdevice.so.6.0.0
-%{_libdir}/kde4/k3bmpcdecoder.desktop
+#%{_libdir}/kde4/k3bmpcdecoder.desktop
 #%{_datadir}/kde4/services/k3bflacdecoder.desktop
 %{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
 %{_desktopdir}/kde4/k3b.desktop
@@ -255,7 +269,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ServiceMenus/k3b_handle_empty_dvd.desktop
 %{_datadir}/kde4/services/ServiceMenus/k3b_videodvd_rip.desktop
 %{_datadir}/kde4/services/k3bexternalencoder.desktop
-%{_datadir}/kde4/services/k3bffmpegdecoder.desktop
+#%{_datadir}/kde4/services/k3bffmpegdecoder.desktop
 %{_datadir}/kde4/services/k3blameencoder.desktop
 %{_datadir}/kde4/services/k3bmaddecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisdecoder.desktop
