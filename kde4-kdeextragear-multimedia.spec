@@ -259,6 +259,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ServiceMenus/k3b_videodvd_rip.desktop
 %{_datadir}/kde4/services/k3bexternalencoder.desktop
 %{_datadir}/kde4/services/k3blameencoder.desktop
+%{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
 %{_datadir}/kde4/services/k3bmaddecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisdecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisencoder.desktop
