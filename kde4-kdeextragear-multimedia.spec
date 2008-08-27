@@ -1,5 +1,5 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 849707
+%define		snap 853018
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
@@ -8,10 +8,9 @@ Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	84608036118733fa4b79403bb91eecfa
+# Source0-md5:	cd1b9b8e8ced38fbfe01185636cf7fec
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
-Patch1:		amarok-lib64.patch
 BuildRequires:	kde4-kdemultimedia-devel
 BuildRequires:	libdvdread-devel
 BuildRequires:	libgpod-devel
@@ -82,7 +81,6 @@ Własności Kreatora CD:
 %prep
 %setup -q -n %{orgname}-%{snap}
 %patch0 -p0
-%patch1 -p0
 
 %build
 install -d {amarok/build,k3b/build}
@@ -129,7 +127,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/amarokmp3tunesharmonydaemon
 %attr(755,root,root) %{_bindir}/amarok_afttagger
 %attr(755,root,root) %{_libdir}/kde4/amarok_containment_context.so
-%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_cloud.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_currenttrack.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lastfmevents.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lyrics.so
@@ -202,7 +199,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/amarok_collection-nepomukcollection.desktop
 %{_datadir}/kde4/services/amarok_collection-mtpcollection.desktop
 %{_datadir}/kde4/services/amarok-containment-context.desktop
-%{_datadir}/kde4/services/amarok-context-applet-cloud.desktop
 %{_datadir}/kde4/services/amarok-context-applet-currenttrack.desktop
 %{_datadir}/kde4/services/amarok-context-applet-lastfmevents.desktop
 %{_datadir}/kde4/services/amarok-context-applet-lyrics.desktop
@@ -237,7 +233,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/k3b
 %attr(755,root,root) %{_bindir}/k3bsetup
 %attr(755,root,root) %{_libdir}/kde4/k3bexternalencoder.so
-#%attr(755,root,root) %{_libdir}/kde4/k3bffmpegdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3blameencoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3bmaddecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3boggvorbisdecoder.so
@@ -249,16 +244,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3boggvorbisencoder.so
 %attr(755,root,root) %{_libdir}/kde4/kcm_k3bsetup2.so
 %attr(755,root,root) %{_libdir}/kde4/kio_videodvd.so
-#%attr(755,root,root) %{_libdir}/kde4/k3bflacdecoder.so
-%attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
-#%attr(755,root,root) %{_libdir}/kde4/k3bmpcdecoder.so
 %attr(755,root,root) %ghost %{_libdir}/libk3b.so.4
 %attr(755,root,root) %{_libdir}/libk3b.so.4.0.0
 %attr(755,root,root) %ghost %{_libdir}/libk3bdevice.so.6
 %attr(755,root,root) %{_libdir}/libk3bdevice.so.6.0.0
-#%{_libdir}/kde4/k3bmpcdecoder.desktop
-#%{_datadir}/kde4/services/k3bflacdecoder.desktop
-%{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
 %{_desktopdir}/kde4/k3b.desktop
 %{_datadir}/apps/k3b
 %{_iconsdir}/hicolor/*x*/apps/k3b.png
@@ -269,7 +258,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ServiceMenus/k3b_handle_empty_dvd.desktop
 %{_datadir}/kde4/services/ServiceMenus/k3b_videodvd_rip.desktop
 %{_datadir}/kde4/services/k3bexternalencoder.desktop
-#%{_datadir}/kde4/services/k3bffmpegdecoder.desktop
 %{_datadir}/kde4/services/k3blameencoder.desktop
 %{_datadir}/kde4/services/k3bmaddecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisdecoder.desktop
