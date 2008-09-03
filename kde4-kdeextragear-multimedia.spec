@@ -1,14 +1,14 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 853018
+%define		snap 856389
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
-Version:	4.1.63
+Version:	4.1.64
 Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	cd1b9b8e8ced38fbfe01185636cf7fec
+# Source0-md5:	93072b1804d00abd1b808199d203b8e8
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
 BuildRequires:	kde4-kdemultimedia-devel
@@ -153,9 +153,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-daapcollection.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-sqlcollection.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_albums.so
-%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_mediadevices.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-ipodcollection.so
-%attr(755,root,root) %{_libdir}/kde4/libamarok_collection-nepomukcollection.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-mtpcollection.so
 %attr(755,root,root) %{_libdir}/libamarok_taglib.so
 %attr(755,root,root) %{_libdir}/libamaroklib.so
@@ -194,9 +192,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*x*/apps/amarok.png
 %{_datadir}/kde4/services/ServiceMenus/amarok_append.desktop
 %{_datadir}/kde4/services/amarok-context-applet-albums.desktop
-%{_datadir}/kde4/services/amarok-context-applet-mediadevices.desktop
 %{_datadir}/kde4/services/amarok_collection-ipodcollection.desktop
-%{_datadir}/kde4/services/amarok_collection-nepomukcollection.desktop
 %{_datadir}/kde4/services/amarok_collection-mtpcollection.desktop
 %{_datadir}/kde4/services/amarok-containment-context.desktop
 %{_datadir}/kde4/services/amarok-context-applet-currenttrack.desktop
@@ -248,6 +244,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libk3b.so.4.0.0
 %attr(755,root,root) %ghost %{_libdir}/libk3bdevice.so.6
 %attr(755,root,root) %{_libdir}/libk3bdevice.so.6.0.0
+%attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
 %{_desktopdir}/kde4/k3b.desktop
 %{_datadir}/apps/k3b
 %{_iconsdir}/hicolor/*x*/apps/k3b.png
