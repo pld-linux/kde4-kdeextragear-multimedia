@@ -1,14 +1,14 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 856389
+%define		snap 859304
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
-Version:	4.1.64
+Version:	4.1.65
 Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	93072b1804d00abd1b808199d203b8e8
+# Source0-md5:	fabd167879fbfc35db83cd46f340d391
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
 BuildRequires:	kde4-kdemultimedia-devel
@@ -155,6 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_albums.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-ipodcollection.so
 %attr(755,root,root) %{_libdir}/kde4/libamarok_collection-mtpcollection.so
+%attr(755,root,root) %{_libdir}/kde4/plasma_animator_default.so
 %attr(755,root,root) %{_libdir}/libamarok_taglib.so
 %attr(755,root,root) %{_libdir}/libamaroklib.so
 %attr(755,root,root) %{_libdir}/libamarokplasma.so
@@ -223,6 +224,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/servicetypes/amarok_context_applet.desktop
 %{_datadir}/kde4/servicetypes/amarok_data_engine.desktop
 %{_datadir}/kde4/servicetypes/amarok_plugin.desktop
+%{_datadir}/kde4/services/plasma-animator-default.desktop
+%{_datadir}/kde4/servicetypes/plasma-animator.desktop
+%{_datadir}/kde4/servicetypes/plasma-applet.desktop
+%{_datadir}/kde4/servicetypes/plasma-containment.desktop
+%{_datadir}/kde4/servicetypes/plasma-dataengine.desktop
+%{_datadir}/kde4/servicetypes/plasma-runner.desktop
+%{_datadir}/kde4/servicetypes/plasma-scriptengine.desktop
+
 
 %files -n kde4-k3b
 %defattr(644,root,root,755)
@@ -231,6 +240,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/k3bexternalencoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3blameencoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3bmaddecoder.so
+%attr(755,root,root) %{_libdir}//kde4/k3bmpcdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3boggvorbisdecoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3boggvorbisencoder.so
 %attr(755,root,root) %{_libdir}/kde4/k3bsoxencoder.so
