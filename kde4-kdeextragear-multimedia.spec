@@ -1,5 +1,5 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 861648
+%define		snap 864114
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
@@ -8,9 +8,17 @@ Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	a7e8dba9ef6df11de2f2b644e416a717
+# Source0-md5:	901ec358735852d3b03973c38ea2d0fe
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
+BuildRequires:	QtNetwork-devel >= 4.4.1
+BuildRequires:	QtOpenGL-devel >= 4.4.1
+BuildRequires:	QtScript-devel >= 4.4.1
+BuildRequires:	QtSql-devel >= 4.4.1
+BuildRequires:	QtSvg-devel >= 4.4.1
+BuildRequires:	QtTest-devel >= 4.4.1
+BuildRequires:	QtUiTools-devel >= 4.4.1
+BuildRequires:	QtWebKit-devel >= 4.4.1
 BuildRequires:	kde4-kdemultimedia-devel
 BuildRequires:	libdvdread-devel
 BuildRequires:	libgpod-devel
