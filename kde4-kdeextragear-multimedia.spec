@@ -1,5 +1,5 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 864114
+%define		snap 866444
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
@@ -8,7 +8,7 @@ Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	901ec358735852d3b03973c38ea2d0fe
+# Source0-md5:	82b3e5a205d19b7820b5bb0e7065ba3e
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
 BuildRequires:	QtNetwork-devel >= 4.4.1
@@ -88,7 +88,7 @@ Własności Kreatora CD:
 
 %prep
 %setup -q -n %{orgname}-%{snap}
-%patch0 -p0
+#%patch0 -p0
 
 %build
 install -d {amarok/build,k3b/build}
