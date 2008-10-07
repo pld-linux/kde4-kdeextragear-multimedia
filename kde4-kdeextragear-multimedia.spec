@@ -96,6 +96,7 @@ cd amarok/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-LCMS_DIR=%{_libdir} \
+	-DLIB_INSTALL_DIR=%{_libdir} \
 	../
 %{__make}
 
@@ -103,6 +104,7 @@ cd ../../k3b/build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-LCMS_DIR=%{_libdir} \
+	-DLIB_INSTALL_DIR=%{_libdir} \
 	../
 %{__make}
 
@@ -135,6 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/amarokmp3tunesharmonydaemon
 %attr(755,root,root) %{_bindir}/amarok_afttagger
 %attr(755,root,root) %{_libdir}/kde4/amarok_containment_context.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_cloud.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_currenttrack.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lastfmevents.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lyrics.so
@@ -215,6 +218,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/amarok-data-engine-lyrics.desktop
 %{_datadir}/kde4/services/amarok-data-engine-service.desktop
 %{_datadir}/kde4/services/amarok-data-engine-wikipedia.desktop
+%{_datadir}/kde4/services/amarok-context-applet-cloud.desktop
 %{_datadir}/kde4/services/amarok_collection-daapcollection.desktop
 %{_datadir}/kde4/services/amarok_collection-sqlcollection.desktop
 %{_datadir}/kde4/services/amarok_service_ampache.desktop
