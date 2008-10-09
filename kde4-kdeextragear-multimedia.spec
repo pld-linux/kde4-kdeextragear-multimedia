@@ -1,14 +1,14 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 866444
+%define		snap 869001
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
-Version:	4.1.67
+Version:	4.1.68
 Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	82b3e5a205d19b7820b5bb0e7065ba3e
+# Source0-md5:	502ff6658d9780f4b48429475aa805db
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
 BuildRequires:	QtNetwork-devel >= 4.4.1
@@ -137,7 +137,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/amarokmp3tunesharmonydaemon
 %attr(755,root,root) %{_bindir}/amarok_afttagger
 %attr(755,root,root) %{_libdir}/kde4/amarok_containment_context.so
-%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_cloud.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_currenttrack.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lastfmevents.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lyrics.so
@@ -218,7 +217,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/amarok-data-engine-lyrics.desktop
 %{_datadir}/kde4/services/amarok-data-engine-service.desktop
 %{_datadir}/kde4/services/amarok-data-engine-wikipedia.desktop
-%{_datadir}/kde4/services/amarok-context-applet-cloud.desktop
 %{_datadir}/kde4/services/amarok_collection-daapcollection.desktop
 %{_datadir}/kde4/services/amarok_collection-sqlcollection.desktop
 %{_datadir}/kde4/services/amarok_service_ampache.desktop
