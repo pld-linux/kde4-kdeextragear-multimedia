@@ -1,14 +1,14 @@
 %define		orgname kdeextragear-multimedia
-%define		snap 869001
+%define		snap 874620
 Summary:	extra multimedia
 Summary(pl.UTF-8):	Dodatkowe programy multimedialne
 Name:		kde4-kdeextragear-multimedia
-Version:	4.1.68
+Version:	4.1.71
 Release:	0.%{snap}.1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/snapshots/%{orgname}-%{snap}.tar.bz2
-# Source0-md5:	502ff6658d9780f4b48429475aa805db
+# Source0-md5:	0062c682618d59f66dd7d8e201f7f7af
 URL:		http://extragear.kde.org/apps/kipi/
 Patch0:		%{name}-NJB.patch
 BuildRequires:	QtNetwork-devel >= 4.4.1
@@ -140,6 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_currenttrack.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lastfmevents.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_lyrics.so
+%attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_mediadevices.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_serviceinfo.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_video.so
 %attr(755,root,root) %{_libdir}/kde4/amarok_context_applet_wikipedia.so
@@ -206,6 +207,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/amarok_collection-mtpcollection.desktop
 %{_datadir}/kde4/services/amarok-containment-context.desktop
 %{_datadir}/kde4/services/amarok-context-applet-currenttrack.desktop
+%{_datadir}/kde4/services/amarok-context-applet-mediadevices.desktop
 %{_datadir}/kde4/services/amarok-context-applet-lastfmevents.desktop
 %{_datadir}/kde4/services/amarok-context-applet-lyrics.desktop
 %{_datadir}/kde4/services/amarok-context-applet-serviceinfo.desktop
@@ -256,7 +258,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libk3b.so.4.0.0
 %attr(755,root,root) %ghost %{_libdir}/libk3bdevice.so.6
 %attr(755,root,root) %{_libdir}/libk3bdevice.so.6.0.0
-%attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
+#%attr(755,root,root) %{_libdir}/kde4/k3blibsndfiledecoder.so
 %{_desktopdir}/kde4/k3b.desktop
 %{_datadir}/apps/k3b
 %{_iconsdir}/hicolor/*x*/apps/k3b.png
@@ -268,7 +270,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/ServiceMenus/k3b_videodvd_rip.desktop
 %{_datadir}/kde4/services/k3bexternalencoder.desktop
 %{_datadir}/kde4/services/k3blameencoder.desktop
-%{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
+#%{_datadir}/kde4/services/k3blibsndfiledecoder.desktop
 %{_datadir}/kde4/services/k3bmaddecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisdecoder.desktop
 %{_datadir}/kde4/services/k3boggvorbisencoder.desktop
